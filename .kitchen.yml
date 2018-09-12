@@ -1,0 +1,250 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_solo
+
+verifier:
+  name: inspec
+
+platforms:
+  - name: debian-9
+
+suites:
+  - name: jc-base-default
+    run_list:
+      - recipe[jc-base::default]
+    verifier:
+      inspec_tests:
+        - test/default
+    attributes:
+      desktop:
+        user:
+          uid: 1001
+          gid: 1001
+
+  - name: jc-base-git
+    run_list:
+      - recipe[jc-base::git]
+    verifier:
+      inspec_tests:
+        - test/git
+    attributes:
+      desktop:
+        user:
+          uid: 1001
+          gid: 1001
+
+  - name: jc-base-vim
+    run_list:
+      - recipe[jc-base::vim]
+    verifier:
+      inspec_tests:
+        - test/vim
+    attributes:
+      desktop:
+        user:
+          uid: 1001
+          gid: 1001
+
+  - name: jc-base-insomnia
+    run_list:
+      - recipe[jc-base::insomnia]
+    verifier:
+      inspec_tests:
+        - test/insomnia
+    attributes:
+      desktop:
+        user:
+          uid: 1001
+          gid: 1001
+
+  - name: jc-base-slack
+    run_list:
+      - recipe[jc-base::slack]
+    attributes:
+      desktop:
+        user:
+          uid: 1001
+          gid: 1001
+
+  - name: jc-base-spotify
+    run_list:
+      - recipe[jc-base::spotify]
+    attributes:
+      desktop:
+        user:
+          uid: 1001
+          gid: 1001
+
+  - name: jc-base-google-chrome
+    run_list:
+      - recipe[jc-base::google-chrome]
+    attributes:
+      desktop:
+        user:
+          uid: 1001
+          gid: 1001
+
+  - name: jc-base-apt
+    run_list:
+      - recipe[jc-base::apt]
+    attributes:
+      desktop:
+        user:
+          uid: 1001
+          gid: 1001
+
+  - name: jc-base-firefox
+    run_list:
+      - recipe[jc-base::apt]
+    attributes:
+      desktop:
+        user:
+          uid: 1001
+          gid: 1001
+
+  - name: jc-base-keepassx
+    run_list:
+      - recipe[jc-base::keepassx]
+    attributes:
+      desktop:
+        user:
+          uid: 1001
+          gid: 1001
+
+  - name: jc-base-nouveau
+    run_list:
+      - recipe[jc-base::nouveau]
+    attributes:
+      desktop:
+        user:
+          uid: 1001
+          gid: 1001
+
+  - name: jc-base-mumble
+    run_list:
+      - recipe[jc-base::mumble]
+    attributes:
+      desktop:
+        user:
+          uid: 1001
+          gid: 1001
+
+  - name: jc-base-inkscape
+    run_list:
+      - recipe[jc-base::inkscape]
+    attributes:
+      desktop:
+        user:
+          uid: 1001
+          gid: 1001
+
+  - name: jc-base-kde
+    run_list:
+      - recipe[jc-base::kde]
+    attributes:
+      desktop:
+        user:
+          uid: 1001
+          gid: 1001
+
+  - name: jc-base-terminator
+    run_list:
+      - recipe[jc-base::terminator]
+    attributes:
+      desktop:
+        user:
+          uid: 1001
+          gid: 1001
+
+  - name: jc-base-vagrant
+    run_list:
+      - recipe[jc-base::vagrant]
+    attributes:
+      desktop:
+        user:
+          uid: 1001
+          gid: 1001
+
+  - name: jc-base-virtualbox
+    run_list:
+      - recipe[jc-base::virtualbox]
+    attributes:
+      desktop:
+        user:
+          uid: 1001
+          gid: 1001
+
+  - name: jc-base-sabnzbdplus
+    run_list:
+      - recipe[jc-base::sabnzbdplus]
+    attributes:
+      desktop:
+        user:
+          uid: 1001
+          gid: 1001
+    verifier:
+      inspec_tests:
+        - test/sabnzbdplus
+
+  - name: jc-base-plex
+    run_list:
+      - recipe[jc-base::plex]
+    attributes:
+      desktop:
+        user:
+          uid: 1001
+          gid: 1001
+    verifier:
+      inspec_tests:
+        - test/plex
+
+  - name: jc-base-sonarr
+    run_list:
+      - recipe[jc-base::sonarr]
+    attributes:
+      desktop:
+        user:
+          uid: 1001
+          gid: 1001
+    verifier:
+      inspec_tests:
+        - test/sonarr
+
+  - name: jc-base-couchpotato
+    run_list:
+      - recipe[jc-base::couchpotato]
+    attributes:
+      desktop:
+        user:
+          uid: 1001
+          gid: 1001
+    verifier:
+      inspec_tests:
+        - test/couchpotato
+
+  - name: jc-base-dbeaver
+    run_list:
+      - recipe[jc-base::dbeaver]
+    attributes:
+      desktop:
+        user:
+          uid: 1001
+          gid: 1001
+    verifier:
+      inspec_tests:
+        - test/dbeaver
+
+  - name: jc-base-vscode
+    run_list:
+      - recipe[jc-base::vscode]
+    attributes:
+      desktop:
+        user:
+          uid: 1001
+          gid: 1001
+    verifier:
+      inspec_tests:
+        - test/vscode

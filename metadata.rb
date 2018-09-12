@@ -1,0 +1,10 @@
+name             'jc-base'
+maintainer       'James Conant'
+maintainer_email 'james@conant.io'
+license          'All rights reserved'
+description      'Installs and configures base desktop'
+version          '0.1.0'
+
+depends 'apt'
+depends 'user'
+depends 'desktop'
