@@ -24,9 +24,10 @@ if `uname -r`[0].to_i < 4
 end
 
 include_recipe 'jc-base::apt'
+include_recipe 'jc-base::bash'
 include_recipe 'jc-base::git'
-include_recipe 'jc-base::vim'
 include_recipe 'jc-base::user'
+include_recipe 'jc-base::vim'
 
 include_recipe 'jc-base::couchpotato'
 include_recipe 'jc-base::dbeaver'
@@ -39,6 +40,7 @@ include_recipe 'jc-base::keepassx'
 include_recipe 'jc-base::mumble'
 include_recipe 'jc-base::nouveau'
 include_recipe 'jc-base::plex'
+include_recipe 'jc-base::pulseaudio'
 include_recipe 'jc-base::sabnzbdplus'
 include_recipe 'jc-base::slack'
 include_recipe 'jc-base::sonarr'

@@ -1,0 +1,57 @@
+PATH="$PATH:/opt:/opt/wine/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin"
+
+# SSH
+{ eval `ssh-agent -s`; } &>/dev/null
+{ ssh-add /home/jconant/.ssh/tartarus_jconant_github_rsa; } &>/dev/null
+# ssh-add /home/jconant/.ssh/tartarus_jconant_contently_github_rsa
+
+# General
+
+alias eb='vim ~/.bashrc'
+alias sb='source ~/.bashrc'
+
+# Terminal Formatting
+
+if [ -n "$DISPLAY" ]; then
+xset b off
+fi
+
+alias ls="ls --color"
+case "$TERM" in
+xterm*) XTITLE="\[\e]0;\w\a\]"
+;;
+rxvt*)  XTITLE="\[\e]0;\w\a\]"
+;;
+*)  XTITLE=""
+;;
+esac
+
+git_prompt() {
+  local ref=$(git branch 2>/dev/null | sed -n '/\* /s///p')
+  if [ "$ref" != "" ]
+  then
+    echo "[$ref]"
+  fi
+}
+
+PS1="
+\e[1m[\D{%F %I:%M:%S}][\u][@\H][\w]\$(git_prompt)\[\e[0m\]
+
+➜ "
+
+# Git
+
+source ~/.git_bash_completion
+alias g="git"
+alias gf="g fetch"
+alias gs="g status"
+alias gl="g log"
+alias gp="git push"
+alias gpm="gf && git pull origin master"
+alias gcm="git checkout master"
+alias grm="git rebase master"
+alias gb="git branch"
+
+# Environment variables
+
+# export QMAKE=/usr/bin/qmake-qt4

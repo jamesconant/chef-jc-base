@@ -4,6 +4,6 @@
 #
 
 local_mode true
-file_cache_path "/home/jconant/projects/tmp"
-cookbook_path ["/home/jconant/projects/cookbooks"]
+file_cache_path "/home/jconant/tmp"
+cookbook_path ["/home/jconant/tmp/cookbooks"]
 json_attribs "/home/jconant/projects/chef-jc-base/node.json"

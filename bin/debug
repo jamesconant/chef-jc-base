@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+rm -rf /home/jconant/.berkshelf/.cache
+rm /home/jconant/projects/chef-jc-base/Berksfile.lock
+rm -rf /home/jconant/tmp/cookbooks
+berks vendor -b /home/jconant/projects/chef-jc-base/Berksfile /home/jconant/tmp/cookbooks
+sudo chef-client -c /home/jconant/projects/chef-jc-base/client.rb

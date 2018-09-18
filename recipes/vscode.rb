@@ -8,7 +8,7 @@
 
 include_recipe 'jc-base::apt'
 
-apt_repository 'spotify' do
+apt_repository 'vscode' do
   uri 'https://packages.microsoft.com/repos/vscode'
   components ['main']
   distribution 'stable'

@@ -16,6 +16,12 @@ include_recipe 'jc-base::user'
 package 'insserv'
 package 'libmono-cil-dev'
 
+user 'nzbdrone' do
+  home '/home/nzbdrone'
+  manage_home true
+  system true
+end
+
 apt_repository 'nzbdrone' do
   uri 'http://apt.sonarr.tv/'
   distribution 'master'
@@ -28,20 +34,10 @@ package 'nzbdrone'
 template '/etc/init.d/nzbdrone' do
   owner 'root'
   group 'root'
+  mode 0777
   source '/etc/init.d/nzbdrone'
 end
 
-[
-  'chmod +x /etc/init.d/nzbdrone',
-  'update-rc.d nzbdrone defaults',
-  'useradd --system nzbdrone',
-  'mkdir /home/nzbdrone',
-  'chmod 770 /opt/NzbDrone -R',
-  'chmod 770 /home/nzbdrone -R',
-  'chown nzbdrone:nzbdrone /opt/NzbDrone -R',
-  'chown nzbdrone:nzbdrone /home/nzbdrone -R'
-].each { |cmd| execute cmd }
-
 service "nzbdrone" do
-  action :restart
+  action [:enable, :restart]
 end
